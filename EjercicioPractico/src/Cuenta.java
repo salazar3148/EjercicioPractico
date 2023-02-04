@@ -19,11 +19,11 @@ public class Cuenta {
     }
 
     public void setRetirar(double cantidad){
-        if(cantidad > this.saldo)  {
-            System.out.println("No cuenta con el saldo suficiente!\n");
-        } else {
+        if(validarMonto(cantidad))  {
             this.saldo -= cantidad;
             System.out.println("Retiró exitosamente: " + cantidad + " de su cuenta, Saldo nuevo disponible: " + this.saldo + "$\n");
+        } else {
+            System.out.println("No cuenta con el saldo suficiente!\n");
         }
     }
 
@@ -33,5 +33,9 @@ public class Cuenta {
 
     public String getDatos(){
         return "Numero: " + this .numero + "\nSaldo: " + this.saldo + "$\nTitular: " + this.titular + ".\n";
+    }
+
+    public boolean validarMonto(double monto){
+        return this.saldo - monto >= 0;
     }
 }

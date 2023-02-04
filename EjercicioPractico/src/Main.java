@@ -14,5 +14,11 @@ public class Main {
         newAccount.setIngreso(70000);
         System.out.println("Su cuenta tiene: " + newAccount.getSaldo() + "$\n");
 
+        Banco bancolombia = new Banco(myBankAccount, newAccount);
+        bancolombia.transferir( 15000);
+        System.out.println("Christian Salazar account's: " + myBankAccount.getSaldo() + "$\n");
+        System.out.println("Jorge Velez account's: " + newAccount.getSaldo() + "$\n");
+
+        bancolombia.transferir( 500000);
     }
 }
